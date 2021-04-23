@@ -1,0 +1,52 @@
+<h3>My books</h3>
+<div class="card">
+    <div class="card-body">
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class='table-responsive'>
+            <table class='table table-hover' *ngIf='books.length'>
+              <thead style="background-color: hsl(205, 87%, 94%);">
+                <tr>
+                  <th>
+                    <button class='btn btn-primary'>Show</button>
+                  </th>
+                  <th>Title</th>
+                  <th>ISBN</th>
+                  <th>Authors</th>
+                  <th>Nb of pages</th>
+                  <th>Publisher</th>
+                  <th>Country</th>
+                  <th>Media type</th>
+                  <th>Release date</th>
+                  <th>Characters</th>
+                  <th>POV characters</th>
+                  <th>URL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let book of books'>
+                    <td>
+                      <img *ngIf='showImage'>
+                    </td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.authors }}</td>
+                    <td>{{ book.numberOfPages }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.country }}</td>
+                    <td>{{ book.mediaType }}</td>
+                    <td>{{ book.released }}</td>
+                    <td>{{ book.characters }}</td>
+                    <td>{{ book.povCharacters }}</td>
+                    <td>{{ book.url }}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

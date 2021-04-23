@@ -1,6 +1,7 @@
 # GOTResourcesProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Aim : The user has a list of Game of thrones resources, for each resource he can show a list that can be filtered.
 
 ## Development server
 

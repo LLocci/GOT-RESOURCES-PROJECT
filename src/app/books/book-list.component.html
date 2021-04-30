@@ -11,7 +11,7 @@
               <thead style="background-color: hsl(205, 87%, 94%);">
                 <tr>
                   <th>
-                    <button class='btn btn-primary'>Show</button>
+                    <button class='btn btn-primary' (click) = 'toggleImage()'>{{showImage ? 'Hide' : 'Show'}}</button>
                   </th>
                   <th>Title</th>
                   <th>ISBN</th>
@@ -29,7 +29,11 @@
               <tbody>
                 <tr *ngFor='let book of books'>
                     <td>
-                      <img *ngIf='showImage'>
+                      <img *ngIf='showImage'
+                   [src]='getImagePath(book.name)'
+                   [title]='getImagePath(book.name)'
+                   [style.width.px]='imageWidth'
+                   [style.margin.px]='imageMargin'>
                     </td>
                     <td>{{ book.name }}</td>
                     <td>{{ book.isbn }}</td>

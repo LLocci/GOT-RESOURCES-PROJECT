@@ -1,0 +1,14 @@
+thead {
+    color: #337AB7;
+  }
+
+td {
+  white-space: nowrap;
+  text-overflow: ellipsis;    
+}
+
+div.overflow-scroll{
+  max-height: 150px;
+  overflow: scroll;
+
+}

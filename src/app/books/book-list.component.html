@@ -39,9 +39,21 @@
                     <td>{{ book.country }}</td>
                     <td>{{ book.mediaType }}</td>
                     <td>{{ book.released }}</td>
-                    <td>{{ book.characters }}</td>
-                    <td>{{ book.povCharacters }}</td>
-                    <td>{{ book.url }}</td>
+                    <td>
+                      <div class="overflow-scroll"> 
+                        <tr *ngFor = "let character of book.characters">
+                        {{character}}
+                        </tr>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="overflow-scroll">
+                        <tr *ngFor = "let povCharacter of book.povCharacters">
+                        {{povCharacter}}
+                        </tr>
+                      </div>
+                    </td>
+                    <td>{{ book.url }}</td> 
                 </tr>
               </tbody>
             </table>

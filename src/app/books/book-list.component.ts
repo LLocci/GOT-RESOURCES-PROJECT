@@ -27,7 +27,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     }
 
     books : IBook[] = [] ;
-    filteredBooks: IBook[] = [];
+    filteredBooks: IBook[] = this.books;
 
   constructor(private bookService: BookService) {}
 
@@ -42,7 +42,10 @@ export class BookListComponent implements OnInit, OnDestroy {
   performFilter(filterBy: string): IBook[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.books.filter((book: IBook) =>
-      book.name.toLocaleLowerCase().includes(filterBy));
+      ((book.name.toLocaleLowerCase().includes(filterBy)) || 
+      (book.publisher.toLocaleLowerCase().includes(filterBy)) ||
+      (book.isbn.toLocaleLowerCase().includes(filterBy))
+      ));
   }
 
   ngOnInit(): void {

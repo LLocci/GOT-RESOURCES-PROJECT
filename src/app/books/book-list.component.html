@@ -1,7 +1,7 @@
 <div class='row'>
   <div class='container-fluid'>
     <h4 class="display-4">Game of thrones books</h4>
-    <p>Here is the list of the entire Game of throne saga. Find the main metadata concerning the books.</p>
+    <p class= 'col-md-4'>Here is the book list of the entire Game of Thrones saga. Find below the main metadata concerning the books. The books can be filtered by title, ISBN or publisher.</p>
   </div>
 </div>
 <div class='row'>
@@ -16,7 +16,7 @@
 </div>
 <div class='row'>
   <div class = 'container-fluid'>
-    <table class='table-responsive table-hover' *ngIf='books.length'>
+    <table class='table-responsive table-hover' *ngIf='filteredBooks.length'>
       <thead>
         <tr>
           <th>

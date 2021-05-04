@@ -3,6 +3,7 @@ import { IBook } from './book';
 import { Subscription } from 'rxjs';
 import { BookService } from './books.service';
 
+
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -11,12 +12,22 @@ import { BookService } from './books.service';
 export class BookListComponent implements OnInit, OnDestroy {
 
     showImage : boolean = false; 
-    listFilter : string = 'book';
     sub!: Subscription;
     imageWidth = 60;
     imageMargin = 5;
     errorMessage = '';
+
+    private _listFilter = '';
+    get listFilter(): string { //getter
+      return this._listFilter;
+    }
+    set listFilter(value: string) {// setter
+      this._listFilter = value;
+      this.filteredBooks = this.performFilter(value);
+    }
+
     books : IBook[] = [] ;
+    filteredBooks: IBook[] = [];
 
   constructor(private bookService: BookService) {}
 
@@ -26,6 +37,12 @@ export class BookListComponent implements OnInit, OnDestroy {
 
   getImagePath(title : string) : string {
       return '../assets/images/'+title.replace(/ /g, "_").toLowerCase()+'.jpg';
+  }
+
+  performFilter(filterBy: string): IBook[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.books.filter((book: IBook) =>
+      book.name.toLocaleLowerCase().includes(filterBy));
   }
 
   ngOnInit(): void {

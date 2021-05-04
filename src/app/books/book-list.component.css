@@ -1,10 +1,13 @@
 thead {
     color: #337AB7;
+    background-color: hsl(205, 87%, 94%);
+    padding: 0.7rem;
   }
 
 td {
   white-space: nowrap;
-  text-overflow: ellipsis;    
+  text-overflow: ellipsis;
+  padding: 0.7rem;    
 }
 
 div.overflow-scroll{
@@ -12,3 +15,4 @@ div.overflow-scroll{
   overflow: scroll;
 
 }
+

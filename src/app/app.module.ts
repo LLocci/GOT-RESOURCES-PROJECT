@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms'; // needed for ngModel
+import { FormsModule } from '@angular/forms';
+import { CharacterListComponent } from './characters/character-list.component'; // needed for ngModel
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent
+    BookListComponent,
+    CharacterListComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms'; // needed for ngModel
     FormsModule,
     RouterModule.forRoot([
       { path: 'books', component: BookListComponent },
+      { path: 'characters', component: CharacterListComponent },
       { path: 'home', component: HomeComponent },
       {path: '', redirectTo: 'home', pathMatch : 'full'}
     ],{useHash : true})

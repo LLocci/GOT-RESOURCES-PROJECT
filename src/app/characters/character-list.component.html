@@ -1,0 +1,74 @@
+<div class='row'>
+    <div class="container-fluid mt-3 ml-3 mr-3 mb-3">
+      <div class='card'>
+        <div class='card-body'>
+          <h4 class='card-title'>Game of thrones characters</h4>
+          <p class= 'card-text'>Here is the character list of the entire Game of Thrones saga. Find below the main metadata concerning the characters. The characters can be filtered by name, gender, aliases and culture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="container-fluid ml-3 mr-3 mb-1">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default" type ='text'>Filter by</span>
+          </div>
+          <input [(ngModel)]='listFilter' type="text" class="col-md-4" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="type text here ...">
+        </div>
+      </div>
+  </div>
+  <div class='row'>
+    <div class="container-fluid ml-3 mr-3 mb-3">
+    <div class = 'card'>
+      <div class = 'card-body'>
+        <table class='table-responsive table-hover' *ngIf='filteredCharacters.length'>
+          <thead>
+            <tr>
+              <th>
+                <button class="btn btn-primary btn-md" (click) = 'toggleImage()'>{{showImage ? 'Hide' : 'Image'}}</button>
+              </th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Culture</th>
+              <th>Birth</th>
+              <th>Death</th>
+              <th>Father</th>
+              <th>Mother</th>
+              <th>Spouse</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let character of filteredCharacters'>
+              <td>
+                <img *ngIf='showImage'
+                  [src]='getImagePath(character.name)'
+                  [title]='getImagePath(character.name)'
+                  [style.width.px]='imageWidth'
+                  [style.margin.px]='imageMargin'>
+              </td>
+              <td>{{ character.name }}</td>
+              <td>{{ character.gender }}</td>
+              <td>{{ character.culture }}</td>
+              <td>{{ character.born }}</td>
+              <td>{{ character.died }}</td>
+              <td>{{ character.father }}</td>
+              <td>{{ character.mother }}</td>
+              <td>{{ character.spouse }}</td>
+              <td>{{ character.url }}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  
+  
+  
+  

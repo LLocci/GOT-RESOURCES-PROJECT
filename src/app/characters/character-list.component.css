@@ -1,0 +1,23 @@
+thead {
+    color: #6d6d6d;
+    background-color: hsl(0, 0%, 93%);
+    padding: 0.7rem;
+    text-align: center;
+  }
+
+td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.7rem;
+  text-align: center;    
+}
+
+div.overflow-scroll{
+  max-height: 150px;
+  overflow: scroll;
+
+}
+
+.card-header {
+  font-size: large;
+}

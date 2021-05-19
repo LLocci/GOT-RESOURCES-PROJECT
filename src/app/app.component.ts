@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  PageTitle = 'Game of Throne resources';
+  PageTitle = 'GOT resources home ';
 }

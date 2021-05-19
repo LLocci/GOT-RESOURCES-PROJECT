@@ -8,13 +8,27 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="body">
   <div class="container-fluid">
-    <nav class="navbar navbar-light" style="background-color: hsl(0, 0%, 93%);">
-      <a class="navbar-brand" href="#">{{PageTitle}}</a>
-    </nav>
+    <div class="card">
+      <nav class="navbar navbar-light" style="background-color: hsl(0, 0%, 93%);">
+        <ul class='nav nav-pills'>
+          <li>
+            <a class="navbar-brand" routerLinkActive='active' routerLink='/home'>{{PageTitle}}</a>
+          </li>
+          <li>
+            <a class='nav-link' routerLinkActive='active' routerLink='/books'>Books</a>
+          </li>
+        </ul>
+      </nav>
   </div>
-  <div class="container-fluid">
+</div>
+</div>
+
+  <!--
+<div class="container-fluid">
         <app-book-list></app-book-list>
 </div>
+  -->
+  
 
   
 
@@ -26,7 +40,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
 
 <router-outlet></router-outlet>

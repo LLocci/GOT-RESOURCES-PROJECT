@@ -29,6 +29,8 @@
                 <button class="btn btn-primary btn-md" (click) = 'toggleImage()'>{{showImage ? 'Hide' : 'Image'}}</button>
               </th>
               <th>Name</th>
+              <th>Aliases</th>
+              <th>Titles</th>
               <th>Gender</th>
               <th>Culture</th>
               <th>Birth</th>
@@ -36,6 +38,11 @@
               <th>Father</th>
               <th>Mother</th>
               <th>Spouse</th>
+              <th>Allegiances</th>
+              <th>Books</th>
+              <th>POV Books</th>
+              <th>TV Series</th>
+              <th>Played by</th>
               <th>URL</th>
             </tr>
           </thead>
@@ -48,15 +55,64 @@
                   [style.width.px]='imageWidth'
                   [style.margin.px]='imageMargin'>
               </td>
-              <td>{{ character.name }}</td>
-              <td>{{ character.gender }}</td>
-              <td>{{ character.culture }}</td>
-              <td>{{ character.born }}</td>
-              <td>{{ character.died }}</td>
-              <td>{{ character.father }}</td>
-              <td>{{ character.mother }}</td>
-              <td>{{ character.spouse }}</td>
-              <td>{{ character.url }}</td> 
+              <td>{{ character.name != "" ? character.name : "NaN" }}</td>
+              <td>
+                <div [ngClass] ="character.aliases.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+                  <tr *ngFor = "let alias of character.aliases">
+                    {{alias != "" ? alias : "NaN" }}
+                  </tr>
+                </div>
+              </td>
+              <td>
+              <div [ngClass] ="character.titles.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+                  <tr *ngFor = "let title of character.titles">
+                    {{title != "" ? title : "NaN" }}
+                  </tr>
+              </div>
+              </td>
+              <td>{{ character.gender != "" ? character.gender : "NaN" }}</td>
+              <td>{{ character.culture != "" ? character.culture : "NaN" }}</td>
+              <td>{{ character.born != "" ? character.born : "NaN" }}</td>
+              <td>{{ character.died != "" ? character.died : "NaN" }}</td>
+              <td>{{ character.father != "" ? character.father : "NaN" }}</td>
+              <td>{{ character.mother != "" ? character.mother : "NaN" }}</td>
+              <td>{{ character.spouse != "" ? character.spouse : "NaN" }}</td>
+              <td>
+                <div [ngClass] ="character.allegiances.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+                    <tr *ngFor = "let allegiance of character.allegiances">
+                      {{allegiance !="" ? allegiance : "NaN" }}
+                    </tr>
+                </div>
+              </td>
+              <td>
+                <div [ngClass] ="character.books.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+                    <tr *ngFor = "let book of character.books">
+                      {{book != "" ? book : "NaN" }}
+                    </tr>
+                </div>
+              </td>
+              <td>
+                <div [ngClass] ="character.povBooks.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+                    <tr *ngFor = "let povbook of character.povBooks">
+                      {{povbook != "" ? povbook : "NaN" }}
+                    </tr>
+                </div>
+              </td>
+              <td>
+                <div [ngClass] ="character.tvSeries.length > 10 ? 'overflow-scroll' : 'overflow'">
+                  <tr *ngFor = "let tvSerie of character.tvSeries">
+                    {{tvSerie != "" ? tvSerie : "NaN" }}
+                  </tr>
+                </div>
+              </td>
+              <td>
+                <div [ngClass] ="character.playedBy.length > 10 ? 'overflow-scroll' : 'overflow'">
+                  <tr *ngFor = "let by of character.playedBy">
+                    {{by != "" ? by : "NaN" }}
+                  </tr>
+                </div>
+              </td>
+              <td>{{ character.url != "" ? character.url : "NaN" }}</td> 
             </tr>
           </tbody>
         </table>

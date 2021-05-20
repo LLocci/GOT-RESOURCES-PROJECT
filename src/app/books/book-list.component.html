@@ -59,14 +59,14 @@
             <td>{{ book.mediaType }}</td>
             <td>{{ book.released }}</td>
             <td>
-              <div class="overflow-scroll"> 
+              <div [ngClass] ="book.characters.length > 10 ? 'overflow-scroll' : 'overflow'"> 
                   <tr *ngFor = "let character of book.characters">
                     {{character}}
                   </tr>
               </div>
             </td>
             <td>
-              <div class="overflow-scroll">
+              <div [ngClass] ="book.povCharacters.length > 10 ? 'overflow-scroll' : 'overflow'">
                 <tr *ngFor = "let povCharacter of book.povCharacters">
                   {{povCharacter}}
                 </tr>

@@ -12,7 +12,7 @@ export interface ICharacter {
     spouse: string;
     allegiances : string[];
     books : string[];
-    povbooks : string[];
+    povBooks : string[];
     tvSeries : string[];
     playedBy : string[];
   }

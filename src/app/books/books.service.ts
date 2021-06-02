@@ -8,9 +8,7 @@ import { IBook } from './book';
     providedIn: 'root'
   })
   export class BookService {
-    // If using Stackblitz, replace the url with this line
-    // because Stackblitz can't find the api folder.
-    // private productUrl = 'assets/products/products.json';
+    
     private bookUrl = 'https://anapioficeandfire.com/api/books';
   
     constructor(private http: HttpClient) { }

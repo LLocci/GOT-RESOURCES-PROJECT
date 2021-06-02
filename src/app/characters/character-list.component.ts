@@ -51,6 +51,10 @@ export class CharacterListComponent implements OnInit {
     this.sub = this.characterService.getCharactersFromServer().subscribe({
         next: characters => {
           this.characters = characters;
+          characters.forEach(function(c){
+            c.id = c.url.split('/').pop() as number | undefined;
+          }); // get the id from the url
+ 
         },
         error : err => this.errorMessage = err
     })

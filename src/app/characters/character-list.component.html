@@ -17,7 +17,26 @@
           <input [(ngModel)]='listFilter' type="text" class="col-md-4" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="type text here ...">
         </div>
       </div>
-  </div>
+      <div class= "container col-md-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pg-teal justify-content-center">
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" mdbWavesEffect>1</a></li>
+            <li class="page-item active">
+              <span class="page-link" mdbWavesEffect>
+                2
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+            <li class="page-item">
+              <a class="page-link" mdbWavesEffect>Next</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
   <div class='row'>
     <div class="container-fluid ml-3 mr-3 mb-3">
     <div class = 'card'>
@@ -25,9 +44,6 @@
         <table class='table-responsive table-hover' *ngIf='filteredCharacters.length'>
           <thead>
             <tr>
-              <th>
-                <button class="btn btn-primary btn-md" (click) = 'toggleImage()'>{{showImage ? 'Hide' : 'Image'}}</button>
-              </th>
               <th>Name</th>
               <th>Aliases</th>
               <th>Titles</th>
@@ -43,18 +59,11 @@
               <th>POV Books</th>
               <th>TV Series</th>
               <th>Played by</th>
-              <th>URL</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor='let character of filteredCharacters'>
-              <td>
-                <img *ngIf='showImage'
-                  [src]='getImagePath(character.name)'
-                  [title]='getImagePath(character.name)'
-                  [style.width.px]='imageWidth'
-                  [style.margin.px]='imageMargin'>
-              </td>
               <td>{{ character.name != "" ? character.name : "NaN" }}</td>
               <td>
                 <div [ngClass] ="character.aliases.length > 10 ? 'overflow-scroll' : 'overflow'"> 
@@ -112,7 +121,11 @@
                   </tr>
                 </div>
               </td>
-              <td>{{ character.url != "" ? character.url : "NaN" }}</td> 
+              <td>
+                <a [routerLink]="['/characters/', character.id]">
+                {{ character.url != "" ? character.url : "NaN" }}
+              </a>
+            </td> 
             </tr>
           </tbody>
         </table>
@@ -120,6 +133,7 @@
     </div>
   </div>
 </div>
+
 
   
   

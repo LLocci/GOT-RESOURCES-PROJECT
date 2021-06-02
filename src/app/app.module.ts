@@ -8,25 +8,21 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { CharacterListComponent } from './characters/character-list.component'; // needed for ngModel
+import { CharacterListComponent } from './characters/character-list.component';
+import { CharacterDetailComponent } from './characters/character-detail.component'; // needed for ngModel
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    CharacterDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-      { path: 'books', component: BookListComponent },
-      { path: 'characters', component: CharacterListComponent },
-      { path: 'home', component: HomeComponent },
-      {path: '', redirectTo: 'home', pathMatch : 'full'}
-    ],{useHash : true})
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

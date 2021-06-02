@@ -1,0 +1,39 @@
+<div class='card'>
+    <div class='card-header'>
+      {{pageTitle + ': ' +  character?.aliases}}
+    </div>
+</div>
+
+<div class='card-body'
+       *ngIf='character'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Name:</div>
+          <div class='col-md-8'>{{character.name != '' ? character.name : "Unknown"}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Nicknames:</div>
+          <div class='col-md-8' [ngClass] ="character.aliases.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+            <tr *ngFor = "let alias of character.aliases">
+              {{alias != "" ? alias : "None" }}
+            </tr>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Titles:</div>
+          <div class='col-md-8' [ngClass] ="character.titles.length > 10 ? 'overflow-scroll' : 'overflow'"> 
+            <tr *ngFor = "let title of character.titles">
+              {{title != "" ? title : "None" }}
+            </tr>
+        </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Gender:</div>
+          <div class='col-md-8'>{{character.gender!= '' ? character.gender : "Unknown"}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Culture:</div>
+          <div class='col-md-8'>{{character.culture != '' ? character.culture : "Unknown"}}</div>
+        </div>
+      </div>

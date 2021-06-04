@@ -3,86 +3,23 @@
     <div class='card'>
       <div class='card-body'>
         <h4 class='card-title'>Game of thrones books</h4>
-        <p class= 'card-text'>Here is the book list of the entire Game of Thrones saga. Find below the main metadata concerning the books. The books can be filtered by title, ISBN or publisher.</p>
+        <p class='card-text'>Here is the book list of the entire Game of Thrones saga. Find below the main metadata
+          concerning the books. The books can be filtered by title, ISBN or publisher.</p>
       </div>
     </div>
   </div>
 </div>
 <div class='row'>
   <div class="container-fluid ml-3 mr-3 mb-1">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default" type ='text'>Filter by</span>
-        </div>
-        <input [(ngModel)]='listFilter' type="text" class="col-md-4" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="type text here ...">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default" type='text'>Filter by</span>
       </div>
-    </div>
-</div>
-<div class='row'>
-  <div class="container-fluid ml-3 mr-3 mb-3">
-  <div class = 'card'>
-    <div class = 'card-body'>
-      <table class='table-responsive table-hover' *ngIf='filteredBooks.length'>
-        <thead>
-          <tr>
-            <th>
-              <button class="btn btn-primary btn-md" (click) = 'toggleImage()'>{{showImage ? 'Hide' : 'Image'}}</button>
-            </th>
-            <th>Title</th>
-            <th>ISBN</th>
-            <th>Authors</th>
-            <th>Nb of pages</th>
-            <th>Publisher</th>
-            <th>Country</th>
-            <th>Media type</th>
-            <th>Release date</th>
-            <th>Characters</th>
-            <th>POV characters</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let book of filteredBooks'>
-            <td>
-              <img *ngIf='showImage'
-                [src]='getImagePath(book.name)'
-                [title]='getImagePath(book.name)'
-                [style.width.px]='imageWidth'
-                [style.margin.px]='imageMargin'>
-            </td>
-            <td>{{ book.name }}</td>
-            <td>{{ book.isbn }}</td>
-            <td>{{ book.authors }}</td>
-            <td>{{ book.numberOfPages }}</td>
-            <td>{{ book.publisher }}</td>
-            <td>{{ book.country }}</td>
-            <td>{{ book.mediaType }}</td>
-            <td>{{ book.released }}</td>
-            <td>
-              <div [ngClass] ="book.characters.length > 10 ? 'overflow-scroll' : 'overflow'"> 
-                  <tr *ngFor = "let character of book.characters">
-                    {{character}}
-                  </tr>
-              </div>
-            </td>
-            <td>
-              <div [ngClass] ="book.povCharacters.length > 10 ? 'overflow-scroll' : 'overflow'">
-                <tr *ngFor = "let povCharacter of book.povCharacters">
-                  {{povCharacter}}
-                </tr>
-              </div>
-            </td>
-            <td>{{ book.url }}</td> 
-          </tr>
-        </tbody>
-      </table>
+      <input [(ngModel)]='listFilter' type="text" class="col-md-4" aria-label="Default"
+        aria-describedby="inputGroup-sizing-default" placeholder="type text here ...">
     </div>
   </div>
 </div>
+<div class="container-fluid ml-3 mr-3 mb-3">
+  <app-book *ngFor='let book of filteredBooks' [book]="book"></app-book>
 </div>
-
-
-
-
-
-

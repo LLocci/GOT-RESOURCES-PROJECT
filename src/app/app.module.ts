@@ -1,26 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BookListComponent } from './books/book-list.component';
-import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CharacterListComponent } from './characters/character-list.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { APP_ROUTES } from './app.routes';
+import { BookComponent } from './book/book.component';
+import { BookListComponent } from './books/book-list.component';
 import { CharacterDetailComponent } from './characters/character-detail.component'; // needed for ngModel
+import { CharacterListComponent } from './characters/character-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     CharacterListComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     FormsModule
   ],

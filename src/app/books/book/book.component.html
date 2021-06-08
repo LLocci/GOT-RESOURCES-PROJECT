@@ -1,0 +1,33 @@
+<mat-card class="book">
+    <mat-card-header>
+        <mat-card-title>{{ book.name }}</mat-card-title>
+        <mat-card-subtitle>{{ book.isbn }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf='showImage' [src]='getImagePath(book.name)' [title]='getImagePath(book.name)'>
+    <mat-card-content>
+        <div>Authors: {{ book.authors }}</div>
+        <div>Number of pages: {{ book.numberOfPages }}</div>
+        <div>Publisher: {{ book.publisher }}</div>
+        <div>Country: {{ book.country }}</div>
+        <div>Media type: {{ book.mediaType }}</div>
+        <div>Release date: {{ book.released }}</div>
+        <div>URL: {{ book.url }}</div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" class="book-card-button">Details</button>
+      </mat-card-actions>
+    <!-- <div>
+    <div >
+        <tr *ngFor = "let character of book.characters">
+          {{character}}
+        </tr>
+    </div>
+  </div> -->
+    <!-- <div>
+    <div>
+      <tr *ngFor = "let povCharacter of book.povCharacters">
+        {{povCharacter}}
+      </tr>
+    </div>
+  </div> -->
+</mat-card>

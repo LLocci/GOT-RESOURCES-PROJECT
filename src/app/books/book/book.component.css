@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+.book-card-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }

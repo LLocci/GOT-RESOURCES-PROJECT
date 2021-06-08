@@ -25,4 +25,8 @@ export class BookComponent implements OnInit {
     return '../../assets/images/' + title.replace(/ /g, "_").toLowerCase() + '.jpg';
   }
 
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
+
 }

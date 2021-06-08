@@ -1,4 +1,4 @@
-<mat-card class="book">
+<mat-card class="book-card">
     <mat-card-header>
         <mat-card-title>{{ book.name }}</mat-card-title>
         <mat-card-subtitle>{{ book.isbn }}</mat-card-subtitle>
@@ -14,7 +14,12 @@
         <div>URL: {{ book.url }}</div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="accent" class="book-card-button">Details</button>
+        <button mat-raised-button color="basic">
+            <mat-icon>unfold_more</mat-icon>
+          </button>
+          <button mat-raised-button color="basic" (click) = 'toggleImage()'>
+            <mat-icon>image</mat-icon>
+          </button>
       </mat-card-actions>
     <!-- <div>
     <div >

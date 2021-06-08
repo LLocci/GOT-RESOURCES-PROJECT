@@ -11,10 +11,7 @@ import { BookService } from './books.service';
 })
 export class BookListComponent implements OnInit, OnDestroy {
 
-    showImage : boolean = false; 
     sub!: Subscription;
-    imageWidth = 60;
-    imageMargin = 5;
     errorMessage = '';
 
     private _listFilter = '';
@@ -30,14 +27,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     filteredBooks: IBook[] = this.books;
 
   constructor(private bookService: BookService) {}
-
-  toggleImage(): void {
-    this.showImage = !this.showImage;
-  }
-
-  getImagePath(title : string) : string {
-      return '../assets/images/'+title.replace(/ /g, "_").toLowerCase()+'.jpg';
-  }
 
   performFilter(filterBy: string): IBook[] {
     filterBy = filterBy.toLocaleLowerCase();

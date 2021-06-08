@@ -15,7 +15,9 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button color="basic">
-            <mat-icon>unfold_more</mat-icon>
+            <a mat-flat-button [routerLink]="['/books/', id]" target="_blank">
+                <mat-icon>unfold_more</mat-icon>
+            </a>
           </button>
           <button mat-raised-button color="basic" (click) = 'toggleImage()'>
             <mat-icon>image</mat-icon>

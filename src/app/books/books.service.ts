@@ -17,6 +17,10 @@ import { IBook } from './book';
       return this.http.get<IBook[]>(this.bookUrl);
     }
 
+    getBookByIdFromServer(id : number): Observable<IBook> {
+      return this.http.get<IBook>(`${this.bookUrl}/${id}`);
+    }
+
     // Get one book
     // Since we are working with a json file, we can only retrieve all books
     // So retrieve all products and then find the one we want using 'map'

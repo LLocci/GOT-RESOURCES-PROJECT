@@ -10,15 +10,17 @@ import { IBook } from './../book';
 export class BookComponent implements OnInit {
 
   @Input()
-  book!: IBook
+  book!: IBook;
+  id!: number | undefined;
   showImage: boolean = false;
 
   constructor() {
-    console.log(this.book);
+    console.log("load book:"+this.book);
   }
 
   ngOnInit(): void {
-    console.log(this.book);
+    this.id = this.book.url.split('/').pop() as number | undefined;
+    console.log("id:"+this.id);
   }
 
   getImagePath(title: string): string {

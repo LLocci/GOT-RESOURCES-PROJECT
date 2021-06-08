@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     BookListComponent,
     CharacterListComponent,
     CharacterDetailComponent,
-    BookComponent
+    BookComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

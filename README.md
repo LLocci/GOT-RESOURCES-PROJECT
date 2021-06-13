@@ -5,6 +5,7 @@ Aim : The user has a list of Game of thrones resources, for each resource he can
 
 ## Development server
 
+Run `npm install` to install the packages required for the project.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding

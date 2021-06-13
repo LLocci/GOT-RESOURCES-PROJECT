@@ -4,12 +4,46 @@
         <mat-card-subtitle>{{ book.isbn }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div>Authors: {{ book.authors }}</div>
-        <div>Number of pages: {{ book.numberOfPages }}</div>
-        <div>Publisher: {{ book.publisher }}</div>
-        <div>Country: {{ book.country }}</div>
-        <div>Media type: {{ book.mediaType }}</div>
-        <div>Release date: {{ book.released }}</div>
-        <div>URL: {{ book.url }}</div>
+        <mat-grid-list cols="3" rowHeight="4:1" gutterSize="5px">
+            <mat-grid-tile>Authors: {{ book.authors }}</mat-grid-tile>
+            <mat-grid-tile>Number of pages: {{ book.numberOfPages }}</mat-grid-tile>
+            <mat-grid-tile>Publisher: {{ book.publisher }}</mat-grid-tile>
+            <mat-grid-tile>Country: {{ book.country }}</mat-grid-tile>
+            <mat-grid-tile>Media type: {{ book.mediaType }}</mat-grid-tile>
+            <mat-grid-tile>Release date: {{ book.released }}</mat-grid-tile>
+            <mat-grid-tile>URL: {{ book.url }}</mat-grid-tile>
+    </mat-grid-list>
     </mat-card-content>
+    <mat-card-actions>
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Characters of this book
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to see more
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div  *ngFor ="let character of book.characters">
+                <p>{{character}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Characters for which a chapter was written with their own point of view in the book
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to see more
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div  *ngFor ="let character of book.povCharacters">
+                <p>{{character}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-card-actions>
 </mat-card>

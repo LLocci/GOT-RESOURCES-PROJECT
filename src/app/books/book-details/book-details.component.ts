@@ -37,4 +37,8 @@ export class BookDetailsComponent implements OnInit {
     }
   }
 
+  getImagePath(title: string): string {
+    return '../../assets/images/' + title.replace(/ /g, "_").toLowerCase() + '.jpg';
+  }
+
 }

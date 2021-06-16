@@ -4,18 +4,44 @@
         <mat-card-subtitle>{{ book.isbn }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-grid-list cols="3" rowHeight="4:1" gutterSize="5px">
-            <mat-grid-tile>Authors: {{ book.authors }}</mat-grid-tile>
-            <mat-grid-tile>Number of pages: {{ book.numberOfPages }}</mat-grid-tile>
-            <mat-grid-tile>Publisher: {{ book.publisher }}</mat-grid-tile>
-            <mat-grid-tile>Country: {{ book.country }}</mat-grid-tile>
-            <mat-grid-tile>Media type: {{ book.mediaType }}</mat-grid-tile>
-            <mat-grid-tile>Release date: {{ book.released }}</mat-grid-tile>
-            <mat-grid-tile>URL: {{ book.url }}</mat-grid-tile>
+        <mat-grid-list cols="4" rowHeight="5:2" gutterSize="3px">
+          <mat-grid-tile rowspan="3">
+            <mat-grid-tile-header >Book's cover</mat-grid-tile-header>
+            <div>
+              <img mat-card-image [src]='getImagePath(book.name)' class="imgFullHeight">
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-grid-tile-header>Authors</mat-grid-tile-header>
+            {{ book.authors }}
+          </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>Number of pages</mat-grid-tile-header>
+            {{ book.numberOfPages }}
+          </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>Publisher</mat-grid-tile-header>
+             {{ book.publisher }}
+            </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>Country</mat-grid-tile-header>
+            {{ book.country }}
+          </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>Media type</mat-grid-tile-header>
+            {{ book.mediaType }}
+          </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>Release date</mat-grid-tile-header>  
+            {{ book.released }}
+          </mat-grid-tile>
+          <mat-grid-tile >
+            <mat-grid-tile-header>URL</mat-grid-tile-header>
+            {{ book.url }}
+          </mat-grid-tile>
     </mat-grid-list>
     </mat-card-content>
     <mat-card-actions>
-        <mat-accordion>
             <mat-expansion-panel hideToggle>
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -29,12 +55,10 @@
                 <p>{{character}}</p>
               </div>
             </mat-expansion-panel>
-          </mat-accordion>
-          <mat-accordion>
             <mat-expansion-panel hideToggle>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Characters for which a chapter was written with their own point of view in the book
+                    POV Characters : at least one chapter was written through their eyes 
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to see more
@@ -44,6 +68,5 @@
                 <p>{{character}}</p>
               </div>
             </mat-expansion-panel>
-          </mat-accordion>
     </mat-card-actions>
 </mat-card>

@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { CharacterComponent } from './characters/character/character.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
     CharacterListComponent,
     CharacterDetailComponent,
     BookComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,

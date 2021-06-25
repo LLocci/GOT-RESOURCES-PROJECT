@@ -1,39 +1,78 @@
-<div class='card'>
-    <div class='card-header'>
-      {{pageTitle + ': ' +  character?.aliases}}
-    </div>
-</div>
-
-<div class='card-body'
-       *ngIf='character'>
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class='row'>
-          <div class='col-md-4'>Name:</div>
-          <div class='col-md-8'>{{character.name != '' ? character.name : "Unknown"}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Nicknames:</div>
-          <div class='col-md-8' [ngClass] ="character.aliases.length > 10 ? 'overflow-scroll' : 'overflow'"> 
-            <tr *ngFor = "let alias of character.aliases">
-              {{alias != "" ? alias : "None" }}
-            </tr>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Titles:</div>
-          <div class='col-md-8' [ngClass] ="character.titles.length > 10 ? 'overflow-scroll' : 'overflow'"> 
-            <tr *ngFor = "let title of character.titles">
-              {{title != "" ? title : "None" }}
-            </tr>
-        </div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Gender:</div>
-          <div class='col-md-8'>{{character.gender!= '' ? character.gender : "Unknown"}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Culture:</div>
-          <div class='col-md-8'>{{character.culture != '' ? character.culture : "Unknown"}}</div>
-        </div>
-      </div>
+<mat-card class="character-card">
+  <mat-card-header>
+      <mat-card-title>{{pageTitle + ': '}}{{character?.name != "" ? character?.name : character?.aliases }}</mat-card-title>
+      <mat-card-subtitle> {{ character?.name != "" ? "Also known as "+character?.aliases : "" }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="5:2" gutterSize="3px">
+        <mat-grid-tile >
+          <mat-grid-tile-header>Titles</mat-grid-tile-header>
+          {{ character?.titles ? character?.titles : " - " }}
+          </mat-grid-tile>
+        <mat-grid-tile>
+        <mat-grid-tile-header>Gender</mat-grid-tile-header>
+          {{ character?.gender  != "" ? character?.gender : "Unknown" }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header >Culture</mat-grid-tile-header>
+          {{ character?.culture != "" ? character?.culture  : "Unknown" }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header>Life span</mat-grid-tile-header>
+          {{ character?.born != "" ? character?.born  : "birth - "}}{{character?.died != "" ? character?.died : "?"}}
+        </mat-grid-tile>
+        <mat-grid-tile >
+          <mat-grid-tile-header>Father</mat-grid-tile-header>
+          {{ character?.father  != "" ? character?.father : "Unknown" }}
+        </mat-grid-tile>
+        <mat-grid-tile >
+        <mat-grid-tile-header>Mother</mat-grid-tile-header>
+          {{ character?.mother  != "" ? character?.mother : "Unknown" }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header >Spouse</mat-grid-tile-header>
+          {{ character?.spouse !=  "" ? character?.spouse  : " - " }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header >Allegiances</mat-grid-tile-header>
+          {{ character?.allegiances ? character?.allegiances  : " - " }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header >Payed by</mat-grid-tile-header>
+          {{ character?.playedBy ? character?.playedBy  : " - " }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-grid-tile-header >TV Series</mat-grid-tile-header>
+          {{ character?.tvSeries ? character?.tvSeries : " - " }}
+        </mat-grid-tile>
+        </mat-grid-list>
+        </mat-card-content>
+      <mat-card-actions>
+              <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Books in which {{character?.name != "" ? character?.name : character?.aliases }} appears 
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Click to see more
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div  *ngFor ="let book of character?.books">
+                  <p>{{book}}</p>
+                </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      POV Books : Books for which one chapter at least was written through the eyes of {{character?.name != "" ? character?.name : character?.aliases }}  
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Click to see more
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div  *ngFor ="let book of character?.povBooks">
+                  <p>{{book}}</p>
+                </div>
+              </mat-expansion-panel>
+      </mat-card-actions>
+    </mat-card>

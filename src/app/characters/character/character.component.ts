@@ -10,7 +10,7 @@ export class CharacterComponent implements OnInit {
 
   @Input()
   character!: ICharacter;
-  id!: number | undefined;
+  id! : number | undefined;
 
   constructor() {
     console.log("load character:"+this.character);

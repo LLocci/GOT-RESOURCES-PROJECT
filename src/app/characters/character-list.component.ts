@@ -52,7 +52,7 @@ export class CharacterListComponent implements OnInit {
         next: characters => {
           this.characters = characters;
           characters.forEach(function(c){
-            c.id = c.url.split('/').pop() as number | undefined;
+            c.id = c.url.split('/').pop() as unknown as number; 
           }); // get the id from the url
  
         },

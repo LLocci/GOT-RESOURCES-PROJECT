@@ -1,7 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ICharacter } from './character';
 import { Subscription } from 'rxjs';
 import { CharacterService } from './characters.service';
+
 
 @Component({
   selector: 'app-character-list',
@@ -10,11 +12,14 @@ import { CharacterService } from './characters.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  showImage : boolean = false; 
+  @ViewChild('paginator') paginator!: MatPaginator;
+ 
   sub!: Subscription;
-  imageWidth = 60;
-  imageMargin = 5;
   errorMessage = '';
+  pageIndex = 1 ;
+  pageSize = 10; 
+  pageEvent! : PageEvent;
+
 
   private _listFilter = '';
     get listFilter(): string { //getter
@@ -30,13 +35,6 @@ export class CharacterListComponent implements OnInit {
 
   constructor(private characterService: CharacterService) { }
 
-  toggleImage(): void {
-    this.showImage = !this.showImage;
-  }
-
-  getImagePath(title : string) : string {
-      return '../assets/images/'+title.replace(/ /g, "_").toLowerCase()+'.jpg';
-  }
 
   performFilter(filterBy: string): ICharacter[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -46,9 +44,27 @@ export class CharacterListComponent implements OnInit {
       (character.culture.toLocaleLowerCase().includes(filterBy))
       ));
   }
+    
+  onChangePage(pe:PageEvent) {
+
+    this.pageEvent = pe;
+    this.pageIndex = pe.pageIndex;
+    this.pageSize = pe.pageSize;
+
+    this.sub = this.characterService.getCharactersFromServer(pe.pageIndex, pe.pageSize).subscribe({
+      next: characters => {
+        this.characters = characters;
+        characters.forEach(function(c){
+          c.id = c.url.split('/').pop() as unknown as number; 
+        }); // get the id from the url
+
+      },
+      error : err => this.errorMessage = err
+  });
+  }
 
   ngOnInit(): void {
-    this.sub = this.characterService.getCharactersFromServer().subscribe({
+    this.sub = this.characterService.getCharactersFromServer(this.pageIndex, this.pageSize).subscribe({
         next: characters => {
           this.characters = characters;
           characters.forEach(function(c){

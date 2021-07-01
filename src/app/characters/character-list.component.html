@@ -19,31 +19,26 @@
       </div>
     </div>
     <mat-grid-list cols="4" min-rowHeight="2:1" >
+      <div *ngIf="pageEvent">
       <mat-grid-tile 
       *ngFor='let character of filteredCharacters'>
               <app-character [character] = "character"></app-character>
       </mat-grid-tile>
+    </div>
     </mat-grid-list>
   <div class= "container col-md-12">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination pg-teal justify-content-center">
-        <li class="page-item disabled">
-          <span class="page-link">Previous</span>
-        </li>
-        <li class="page-item"><a class="page-link" mdbWavesEffect>1</a></li>
-        <li class="page-item active">
-          <span class="page-link" mdbWavesEffect>
-            2
-            <span class="sr-only">(current)</span>
-          </span>
-        </li>
-        <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
-        <li class="page-item">
-          <a class="page-link" mdbWavesEffect>Next</a>
-        </li>
-      </ul>
-    </nav>
-</div> 
+    <mat-paginator [length] = "400"
+    [pageSize] = "10"
+    [pageSizeOptions] = "[5, 10, 25, 50]"
+    (page) = "onChangePage($event)">
+  </mat-paginator>
+  <div *ngIf="pageEvent">
+    <h5>Page Change Event Properties</h5>
+    <div>List length: {{pageEvent.length}}</div>
+    <div>Page size: {{pageEvent.pageSize}}</div>
+    <div>Page index: {{pageEvent.pageIndex}}</div>
+  </div>
+ 
 
 
   

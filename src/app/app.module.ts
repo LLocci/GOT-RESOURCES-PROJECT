@@ -17,6 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { CharacterComponent } from './characters/character/character.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CharacterComponent } from './characters/character/character.component';
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

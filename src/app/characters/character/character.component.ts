@@ -18,7 +18,7 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.character.url.split('/').pop() as number | undefined;
-    console.log("id:"+this.id);
+    //console.log("id:"+this.id);
   }
 
 }
